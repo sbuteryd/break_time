@@ -1,13 +1,14 @@
 import os
+import string
 def rename_files():
     #(1)get file names from a folder
-    file_list = os.listdir('./prank')
+    file_list = os.listdir(r"/Users/lihangen/PycharmProjects/untitled2/prank")
     #(2) for each file , rename filename
+    saved_path = os.getcwd()
+    os.chdir(r'/Users/lihangen/PycharmProjects/untitled2/finished')
     for file_name in file_list:
-        dele_number = file_name.translate(None,"0123456789")
-
-        os.rename(file_name,dele_number)
-
+        os.rename(file_name,string.translate(file_name,None,"0123456789"))
+    os.chdir(saved_path)
 
 
 rename_files()
